@@ -164,7 +164,7 @@ class MessageBubble extends StatelessWidget {
         children: <Widget>[
           Text(
              sender,
-        // ${DateTime.fromMillisecondsSinceEpoch(time.seconds * 1000)}',
+         semanticsLabel: '$DateTime.fromMillisecondsSinceEpoch(time.seconds * 1000)',
             style: TextStyle(
               fontSize: 12.0,
               color: Colors.black54,
