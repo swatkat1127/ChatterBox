@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   tag: 'logo',
                 child:Container(
                  height: 200.0,
-                  child: Image.asset('images/logo.png'),
+                  child: Image.asset('images/chat.png'),
           ),
         ),
               ),
@@ -54,6 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 8.0,
               ),
               TextField(
+                 cursorColor: Colors.green[300],
                   obscureText: true,
                   textAlign: TextAlign.center,
                   onChanged: (value) {
@@ -67,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: 24.0,
               ),
-              RoundedButton(color: Colors.lightBlueAccent,title: 'Log In',
+              RoundedButton(color: Colors.green[400],title: 'Log In',
                 onpressed: () async {
                 setState(() {
                   showSpinner = true;

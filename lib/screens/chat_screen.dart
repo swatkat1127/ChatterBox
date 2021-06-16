@@ -1,6 +1,3 @@
-// import 'dart:html';
-
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/constants.dart';
@@ -39,7 +36,6 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,8 +50,8 @@ class _ChatScreenState extends State<ChatScreen> {
                 // Implement logout functionality
               }),
         ],
-        title: Text('⚡️Chat'),
-        backgroundColor: Colors.lightBlueAccent,
+        title: Text('Chat'),
+        backgroundColor: Colors.green[400],
       ),
       body: SafeArea(
         child: Column(
@@ -108,7 +104,10 @@ class MessagesStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: _firestore.collection('Message').orderBy('time', descending: false).snapshots(),//add this
+      stream: _firestore
+          .collection('Message')
+          .orderBy('time', descending: false)
+          .snapshots(), //add this
       // ignore: missing_return
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
@@ -163,8 +162,9 @@ class MessageBubble extends StatelessWidget {
             isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-             sender,
-         semanticsLabel: '$DateTime.fromMillisecondsSinceEpoch(time.seconds * 1000)',
+            sender,
+            semanticsLabel:
+                '$DateTime.fromMillisecondsSinceEpoch(time.seconds * 1000)',
             style: TextStyle(
               fontSize: 12.0,
               color: Colors.black54,
@@ -182,7 +182,7 @@ class MessageBubble extends StatelessWidget {
                     bottomLeft: Radius.circular(30.0),
                     bottomRight: Radius.circular(30.0)),
             elevation: 5.0,
-            color: isMe ? Colors.lightBlueAccent : Colors.white,
+            color: isMe ? Color(0xFF81C784) : Colors.white,
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.00),
               child: Text(

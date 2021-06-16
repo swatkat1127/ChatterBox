@@ -10,8 +10,8 @@ class WelcomeScreen extends StatefulWidget {
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProviderStateMixin {
-
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
   AnimationController controller;
   // Animation animation;
 
@@ -20,11 +20,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     super.initState();
     // animation = CurvedAnimation(parent: controller, curve: Curves.decelerate);
     controller = AnimationController(
-      duration: Duration(seconds: 1), vsync: this, upperBound: 100.0);
-    controller.forward();
+      duration: Duration(seconds: 1),
+      vsync: this,
+      upperBound: 250.0,
+    );
+    controller.forward(from: 100.00);
     controller.addListener(() {
       setState(() {});
-      print(controller.value);
     });
   }
 
@@ -33,42 +35,43 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
+        padding: EdgeInsets.symmetric(horizontal: 100.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Row(
               children: <Widget>[
-               Hero (
-                tag: 'logo',
-                child:Container(
-                  child: Image.asset('images/logo.png'),
-                  height: controller.value,
-                ),
-    ),
-                Text(
-                  'Flash Chat',
-                  style: TextStyle(
-                    fontSize: 45.0,
-                    fontWeight: FontWeight.w900,
+                Hero(
+                  tag: 'logo',
+                  child: Container(
+                    child: Image.asset('images/chat.png'),
+                    alignment: Alignment.center,
+                    height: controller.value,
                   ),
                 ),
               ],
             ),
             SizedBox(
-              height: 48.0,
+              height: 20.0,
             ),
-            RoundedButton(color: Colors.lightBlueAccent,title: 'log in', onpressed: (){
-              Navigator.pushNamed(context, LoginScreen.routeName);
-            },),
-            RoundedButton(color: Colors.blueAccent,title: 'Register',onpressed:(){
-              Navigator.pushNamed(context, RegistrationScreen.routeName);
-            },),
+            RoundedButton(
+              color: Colors.green[300],
+              title: 'log in',
+              onpressed: () {
+                Navigator.pushNamed(context, LoginScreen.routeName);
+              },
+            ),
+            RoundedButton(
+              color: Colors.green[400],
+              title: 'register',
+              onpressed: () {
+                Navigator.pushNamed(context, RegistrationScreen.routeName);
+              },
+            ),
           ],
         ),
       ),
     );
   }
 }
-
