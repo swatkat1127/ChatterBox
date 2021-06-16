@@ -1,6 +1,6 @@
 # ChatterBox
 
-A modern messaging app where users can sign up and log in to chat.
+A modern messaging app where users can sign up and log in to chat(group chat).
 
 ### Highlights:
 - Incorporates Firebase into Flutter project
@@ -12,7 +12,7 @@ A modern messaging app where users can sign up and log in to chat.
 - ListViews to build scrolling views
 - Firebase Cloud Firestore to store and retrieve data on the fly
 
-### Video of the search bar in action
+### Video
 
 [ ![video_thumbnail](https://user-images.githubusercontent.com/17541038/122245089-0adbb100-cee3-11eb-91a8-b7b123af5c98.png) ](https://drive.google.com/file/d/1mHzlWqnv_fcSnSs-q0TF71vMHNGwJW6k/view?usp=sharing)
 
